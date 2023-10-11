@@ -9,10 +9,10 @@ public class Unit : MonoBehaviour
 
     #region 기본 스텟 데이터
 
-    [SerializeField] private int hp = 100;
+    [SerializeField] protected int hp = 100;
     public int HP { get { return hp; } }
 
-    [SerializeField] private int damage = 10;
+    [SerializeField] protected int damage = 10;
     public int Damage { get { return damage; } }
 
     #endregion
@@ -23,7 +23,7 @@ public class Unit : MonoBehaviour
         unitAnimation = GetComponentInChildren<UnitAnimation>();
     }
 
-    public void GetDamage(int damage)
+    public virtual void GetDamage(int damage)
     {
         hp -= damage;
     }

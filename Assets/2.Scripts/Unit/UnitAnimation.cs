@@ -11,13 +11,14 @@ public class UnitAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void SetMoveAnim()
+    public void SetMoveAnim(float value)
     {
-
+        animator.SetFloat("Speed", value);
     }
 
     public void SetAttackAnim()
     {
-
+        Debug.Log("Attack");
+        animator.SetTrigger("Skill");
     }
 }

@@ -9,7 +9,7 @@ public class UnitMove : MonoBehaviour
     public Vector2 MoveDir { get { return moveDir; } }
     
     private Rigidbody2D rb2D;
-    [SerializeField] private int speed = 5;
+    [SerializeField] private float speed = 5;
 
     public UnityEvent<float> OnVelocityChange;
     private void Awake()
