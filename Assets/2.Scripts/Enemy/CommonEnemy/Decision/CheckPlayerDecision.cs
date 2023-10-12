@@ -10,6 +10,7 @@ public class CheckPlayerDecision : FSMDecision
     public override bool MakeADecision()
     {
         float distance = Vector2.Distance(enemyFSM.targetUnit.transform.position, transform.position);
+
         if (distance < chaseRange)
             return true;
 

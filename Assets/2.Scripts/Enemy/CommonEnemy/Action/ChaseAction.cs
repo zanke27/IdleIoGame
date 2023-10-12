@@ -8,6 +8,8 @@ public class ChaseAction : FSMAction
     {
         Vector2 direction = enemyFSM.targetUnit.transform.position - transform.position;
 
+        Debug.Log("Chase");
+
         fsmMoveData.direction = direction.normalized;
         enemyFSM.Move(fsmMoveData.direction);
     }

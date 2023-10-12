@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class UnitAnimation : MonoBehaviour
 {
-    private Animator animator;
+    protected Animator animator;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
     }
@@ -16,7 +16,7 @@ public class UnitAnimation : MonoBehaviour
         animator.SetFloat("Speed", value);
     }
 
-    public void SetAttackAnim()
+    public void SetPlayerSkillAnim()
     {
         animator.SetTrigger("Skill");
     }

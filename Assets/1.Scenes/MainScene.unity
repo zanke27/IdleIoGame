@@ -888,7 +888,7 @@ MonoBehaviour:
   OnVelocityChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 848207008}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnitAnimation, Assembly-CSharp
         m_MethodName: SetMoveAnim
         m_Mode: 0
@@ -1000,7 +1000,19 @@ MonoBehaviour:
         m_CallState: 2
   <AttackInput>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 848207012}
+        m_TargetAssemblyTypeName: EnemyAnimation, Assembly-CSharp
+        m_MethodName: SetAttackAnim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   currentState: {fileID: 866352470}
   targetUnit: {fileID: 0}
   roamingPoint: {fileID: 0}
@@ -2781,7 +2793,7 @@ GameObject:
   - component: {fileID: 848207010}
   - component: {fileID: 848207011}
   - component: {fileID: 848207009}
-  - component: {fileID: 848207008}
+  - component: {fileID: 848207012}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -2804,18 +2816,6 @@ Transform:
   m_Father: {fileID: 268684014}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &848207008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848207006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f7c73d81f9cf34a951a00289703678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &848207009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2901,6 +2901,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &848207012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848207006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236977f32d4723f4081c7431c1bf75cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866352468
 GameObject:
   m_ObjectHideFlags: 0
@@ -6547,7 +6559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2219bf24eb17241b638947f7b02d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 0.5
+  chaseRange: 1
 --- !u!1 &1274571017
 GameObject:
   m_ObjectHideFlags: 0
@@ -8869,6 +8881,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2038558936}
   - component: {fileID: 2038558937}
+  - component: {fileID: 2038558938}
+  - component: {fileID: 2038558939}
   m_Layer: 0
   m_Name: ToChaseTransition
   m_TagString: Untagged
@@ -8903,9 +8917,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1cd1feb982672945a3ee61cae533501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decisions: []
+  decisions:
+  - {fileID: 2038558938}
+  - {fileID: 2038558939}
   positiveState: {fileID: 0}
   negativeState: {fileID: 1129967188}
+--- !u!114 &2038558938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038558935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2219bf24eb17241b638947f7b02d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRange: 1
+--- !u!114 &2038558939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038558935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abd4572bd98a0b41be5ee46304b2b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2086533365
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class AttackAction : FSMAction
             enemyFSM.Attack();
         }
 
+        Debug.Log("Attack");
+
         fsmMoveData.direction = Vector2.zero;
         enemyFSM.Move(fsmMoveData.direction);
     }
