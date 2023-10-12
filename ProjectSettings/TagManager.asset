@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 3535012667
+    locked: 0
+  - name: Enemy
+    uniqueID: 3915655713
+    locked: 0
+  - name: Player
+    uniqueID: 1290482631
+    locked: 0
+  - name: Effect
+    uniqueID: 1010819661
+    locked: 0
+  - name: UI
+    uniqueID: 3110107095
+    locked: 0

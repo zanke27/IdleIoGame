@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class EnemyFSM : MonoBehaviour, IUnitInput
 
     [SerializeField] protected FSMState currentState;
 
-    public Transform target;
+    public Unit targetUnit;
     public RoamingPoint roamingPoint;
 
     private FSMActionData fsmActionData;
@@ -28,9 +29,19 @@ public class EnemyFSM : MonoBehaviour, IUnitInput
         fsmMoveData = fsm.GetComponent<FSMMoveData>();
     }
 
-    public void SetAttackState(bool state)
+    private void Start()
     {
+        targetUnit = Define.Player;
+    }
 
+    public void SetAttackState(bool isAttack)
+    {
+        fsmActionData.attack = isAttack;
+    }
+
+    public void Attack()
+    {
+        AttackInput?.Invoke();
     }
 
     public void Move(Vector2 moveDirection)

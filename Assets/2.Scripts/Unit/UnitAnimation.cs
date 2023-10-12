@@ -18,7 +18,6 @@ public class UnitAnimation : MonoBehaviour
 
     public void SetAttackAnim()
     {
-        Debug.Log("Attack");
         animator.SetTrigger("Skill");
     }
 }
