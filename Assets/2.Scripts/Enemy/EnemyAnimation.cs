@@ -9,7 +9,12 @@ public class EnemyAnimation : UnitAnimation
     protected override void Awake()
     {
         base.Awake();
-        enemyFSM = GetComponent<EnemyFSM>();
+        enemyFSM = GetComponentInParent<EnemyFSM>();
+    }
+
+    public void SetAttackAnimEnd()
+    {
+        enemyFSM.FSMActionData.attack = false;
     }
 
     public void SetAttackAnim()

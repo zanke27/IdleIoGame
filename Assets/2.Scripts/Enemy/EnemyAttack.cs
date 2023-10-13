@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public abstract class EnemyAttack : MonoBehaviour
 {
     protected EnemyFSM enemyFSM;
-    // enemy
+    protected Enemy enemy;
 
     [SerializeField] private float attackDelay = 1f;
 
@@ -16,7 +16,7 @@ public abstract class EnemyAttack : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // enemy    
+        enemy = GetComponent<Enemy>();
         enemyFSM = GetComponent<EnemyFSM>();
     }
 

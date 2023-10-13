@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
     protected int hp = 100;
     public int Hp => hp;
 
-    public UnityEvent Die;
-    public UnityEvent Hit;
+    public UnityEvent EnemyDie;
+    public UnityEvent EnemyHit;
     #endregion
 
     [SerializeField] protected bool isActive = false;
@@ -53,10 +53,11 @@ public class Enemy : MonoBehaviour
         isDead = true;
         isActive = false;
         enemyAttack.Reset();
-
-        // ¾ÆÁ÷ ´ú ¸¸µë
     }
 
-
-
+    public void Die()
+    {
+        EnemyDie?.Invoke();
+        PoolManager.Release(this);
+    }
 }

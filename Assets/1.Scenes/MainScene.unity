@@ -862,9 +862,10 @@ GameObject:
   - component: {fileID: 268684014}
   - component: {fileID: 268684016}
   - component: {fileID: 268684012}
+  - component: {fileID: 268684017}
   - component: {fileID: 268684015}
-  - component: {fileID: 268684011}
   - component: {fileID: 268684010}
+  - component: {fileID: 268684018}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -888,7 +889,7 @@ MonoBehaviour:
   OnVelocityChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 848207012}
         m_TargetAssemblyTypeName: UnitAnimation, Assembly-CSharp
         m_MethodName: SetMoveAnim
         m_Mode: 0
@@ -900,20 +901,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &268684011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268684009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48809cc7688e62f43b31415c14737443, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  damage: 10
 --- !u!50 &268684012
 Rigidbody2D:
   serializedVersion: 4
@@ -1001,6 +988,18 @@ MonoBehaviour:
   <AttackInput>k__BackingField:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 268684018}
+        m_TargetAssemblyTypeName: NormalAttack, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 848207012}
         m_TargetAssemblyTypeName: EnemyAnimation, Assembly-CSharp
         m_MethodName: SetAttackAnim
@@ -1051,6 +1050,42 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &268684017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268684009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dae3e1797bc08b42941b3cb4cf50eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  EnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
+  EnemyHit:
+    m_PersistentCalls:
+      m_Calls: []
+  isActive: 0
+--- !u!114 &268684018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268684009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d606602bd1350ce42a40672a39201887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDelay: 3
+  AttackFeedback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &284747882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,6 +3556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: 3
+  inDistance: 1
 --- !u!1 &1106029965
 GameObject:
   m_ObjectHideFlags: 0
@@ -6560,6 +6596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: 1
+  inDistance: 1
 --- !u!1 &1274571017
 GameObject:
   m_ObjectHideFlags: 0
@@ -6815,6 +6852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: 3
+  inDistance: 1
 --- !u!1 &1449597328
 GameObject:
   m_ObjectHideFlags: 0
@@ -8882,7 +8920,6 @@ GameObject:
   - component: {fileID: 2038558936}
   - component: {fileID: 2038558937}
   - component: {fileID: 2038558938}
-  - component: {fileID: 2038558939}
   m_Layer: 0
   m_Name: ToChaseTransition
   m_TagString: Untagged
@@ -8919,9 +8956,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decisions:
   - {fileID: 2038558938}
-  - {fileID: 2038558939}
-  positiveState: {fileID: 0}
-  negativeState: {fileID: 1129967188}
+  positiveState: {fileID: 1129967188}
+  negativeState: {fileID: 0}
 --- !u!114 &2038558938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8935,18 +8971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: 1
---- !u!114 &2038558939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038558935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1abd4572bd98a0b41be5ee46304b2b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  inDistance: 0
 --- !u!1 &2086533365
 GameObject:
   m_ObjectHideFlags: 0

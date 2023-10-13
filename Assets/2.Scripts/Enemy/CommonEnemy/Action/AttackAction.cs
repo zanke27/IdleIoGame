@@ -11,8 +11,9 @@ public class AttackAction : FSMAction
             enemyFSM.Attack();
         }
 
-        Debug.Log("Attack");
-
+        Debug.Log($"Direction: {fsmMoveData.direction}");
+        // 공격 중에는 멈추고 싶음
+        
         fsmMoveData.direction = Vector2.zero;
         enemyFSM.Move(fsmMoveData.direction);
     }
